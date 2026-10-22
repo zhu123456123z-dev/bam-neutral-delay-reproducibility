@@ -1,0 +1,7 @@
+# Preserve exact release bytes so SHA256SUMS also verifies after cloning.
+* -text
+*.mat binary
+*.npz binary
+*.png binary
+*.pdf binary
+*.fig binary

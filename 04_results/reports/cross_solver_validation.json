@@ -1,0 +1,11 @@
+{
+  "grid_points": 2001,
+  "comparison": "dde23 versus DOP853 method of steps; empirical agreement, not a certified true-error bound",
+  "reference_state_max_difference": 2.327521397837984e-09,
+  "trajectory_state_max_difference": 2.326324077817077e-09,
+  "state_error_curve_max_difference": 1.6386602075257883e-09,
+  "reference_derivative_max_difference": 3.5985621704703874e-09,
+  "trajectory_derivative_max_difference": 3.6750379406313982e-09,
+  "derivative_error_curve_max_difference": 3.0373225601287857e-09,
+  "matlab_matrix_certificates_passed": true
+}

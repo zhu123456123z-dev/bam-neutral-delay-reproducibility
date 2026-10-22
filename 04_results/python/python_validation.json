@@ -1,0 +1,36 @@
+{
+  "solver": "Python SciPy DOP853 method of steps",
+  "scipy_version": "1.13.1",
+  "reference_refinement": 4.378442053365461e-15,
+  "burn_in_difference": 2.220446049250313e-16,
+  "trajectory_refinement": 4.093947403305265e-15,
+  "error_t10": [
+    5.730836043355003e-07,
+    8.032751122599713e-08,
+    1.0069372851934794e-07
+  ],
+  "error_t20": [
+    6.498065974192002e-13,
+    8.7360674250192e-14,
+    1.1447093273275755e-13
+  ],
+  "elapsed_seconds": 62.22430419921875,
+  "reference_derivative_refinement": 6.800116025829084e-15,
+  "derivative_burn_in_difference": 4.163336342344337e-16,
+  "trajectory_derivative_refinement": 6.328271240363392e-15,
+  "derivative_initial_errors": [
+    2.74715170905745,
+    3.0573400485427644,
+    0.2551165578543431
+  ],
+  "derivative_error_t10": [
+    7.88217688396653e-07,
+    1.1259120863416072e-07,
+    1.3832080625331145e-07
+  ],
+  "derivative_error_t20": [
+    8.609502000211933e-13,
+    1.1582401704401946e-13,
+    1.516703429516042e-13
+  ]
+}

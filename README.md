@@ -2,11 +2,11 @@
 
 Numerical reproducibility materials for **Weighted Pseudo-Almost Automorphic Solutions and Stability of High-Order BAM Neural Networks with Neutral Distributed Delays**.
 
-This repository contains the MATLAB simulation and plotting code, an independent Python method-of-steps implementation, model parameters, archived numerical data, and the five figure exports. It does not contain the manuscript or third-party papers. No publication or acceptance is implied.
+MATLAB and Python implementations of the numerical example, with parameters, saved results, and figure files.
 
 ## Quick start
 
-Use Python 3.10--3.12 (repository verification uses Python 3.12):
+Tested with Python 3.12.14, NumPy 1.26.4, SciPy 1.13.1, and Matplotlib 3.9.2.
 
 ```sh
 python -m pip install -r requirements.txt
@@ -14,7 +14,7 @@ python run_reproduction.py
 python verify_archive.py
 ```
 
-The default command verifies the matrix conditions and compares the **saved** MATLAB and Python arrays. It writes new reports to `outputs/`. It does not rerun either solver.
+`run_reproduction.py` checks the matrix conditions and compares the saved MATLAB and Python arrays. Reports are written to `outputs/`. `verify_archive.py` checks the archived data and file checksums. Neither command reruns the simulations.
 
 To recompute the independent Python simulations, convergence checks, and plots:
 
@@ -22,7 +22,7 @@ To recompute the independent Python simulations, convergence checks, and plots:
 python run_reproduction.py --simulate
 ```
 
-New Python data and plots are written to `outputs/python/`, and are compared with the archived MATLAB data. Runtime depends on the machine. MATLAB is not required for these Python commands.
+The `--simulate` option writes new data and plots to `outputs/python/` and compares them with the saved MATLAB results. The Python workflow does not require MATLAB.
 
 ## MATLAB reproduction
 
@@ -32,7 +32,7 @@ In MATLAB, set the current folder to this repository root and run:
 RUN_ME
 ```
 
-This recomputes the `dde23` simulations, tighter-tolerance and longer-history checks, matrix conditions, and all five plots. New results go to `outputs/reproduced_matlab/`; archived data are never overwritten. The saved MATLAB results were generated with **MATLAB 26.2.0.3386108 (R2026b), `dde23`**. The code uses base MATLAB functions and was originally written for the R2021b-era API; a completed R2021b run is not claimed. A new MATLAB run has not been performed during the repository packaging step.
+This runs `dde23`, performs the tolerance and history-horizon checks, and exports all five figures to `outputs/reproduced_matlab/`. It leaves `04_results/` unchanged. The archived MATLAB results were computed with MATLAB R2026b (26.2.0.3386108), using base MATLAB functions. Other MATLAB versions have not been tested for this release.
 
 To compare a new MATLAB run with the archived Python run:
 
@@ -51,7 +51,7 @@ plot_bam_results(fullfile(pwd, 'outputs', 'reproduced_matlab'));
 
 | Location | Contents |
 | --- | --- |
-| `03_code/parameters.json` | All model parameters, constant histories, tolerances and output grid |
+| `03_code/parameters.json` | Model parameters, constant histories, tolerances and output grid |
 | `03_code/run_bam.m` | MATLAB solver, memory-variable formulation and numerical checks |
 | `03_code/plot_bam_results.m` | MATLAB PNG (300 dpi), vector PDF and editable FIG exports |
 | `03_code/simulate_bam.py` | Independent SciPy DOP853 method-of-steps solver |
@@ -60,15 +60,15 @@ plot_bam_results(fullfile(pwd, 'outputs', 'reproduced_matlab'));
 | `03_code/make_regions.py` | Alternative Python rendering of the analytic criterion regions |
 | `04_results/matlab_derivative/` | Archived MATLAB arrays, CSV, validation records and all five figures |
 | `04_results/python/` | Archived Python arrays, CSV and original validation record |
-| `04_results/reports/` | Reports recomputed from the packaged parameters and saved arrays |
+| `04_results/reports/` | Matrix and cross-solver reports, plus the Python rerun record |
 | `docs/DATA_DICTIONARY.md` | Array shapes, column meanings and figure-number mapping |
-| `docs/PROVENANCE.md` | Source provenance and packaging changes |
+| `docs/PROVENANCE.md` | Run history and data provenance |
 | `SHA256SUMS.txt` | Checksums of the release files, excluding this checksum file |
 | `verify_archive.py` | Integrity, shapes, parameters, figure-presence and paper-value checks |
 
 ## Figure numbering
 
-The original export names are preserved to maintain provenance. **The numeric filename prefix is not always the paper figure number.**
+The export names predate the final figure order. Use the following correspondence when matching files to the paper.
 
 | Paper figure | Archived export basename |
 | --- | --- |
@@ -82,14 +82,14 @@ The original export names are preserved to maintain provenance. **The numeric fi
 
 The relative/absolute tolerances are `1e-8`/`1e-10`; the adaptive step-size cap and output-grid spacing are both `0.02`. References start at `-80`, with a longer-history check starting at `-120`. Three constant histories start at zero. Derivatives are evaluated from the model right-hand side, not finite differences. The plotted dashed exponentials are slope guides, **not** complete theoretical error bounds. Cross-solver and refinement differences are empirical diagnostics, not interval-certified bounds on the true error. Figure 5 shows analytic sufficient-condition regions, not an experimentally measured stability region.
 
-The original Python validation record reports SciPy 1.13.1. New runs may differ slightly across platforms, MATLAB/Python versions, and floating-point libraries; exact pixel matching is not promised. See the archived validation files and freshly generated comparison reports rather than comparing screenshots alone.
+The original Python run used SciPy 1.13.1. Small numerical differences can arise across platforms and software versions. The validation records and comparison reports give the relevant numerical differences.
 
 ## Citation and reuse
 
-Until publication, cite the repository URL and the exact commit used. No author names, journal publication details, DOI, or release DOI have been invented. A software/data license has not yet been selected by the rights holders; public availability is not an unrestricted reuse license.
+Cite the repository URL and the commit used. A reuse license has not yet been assigned.
 
-## AI-assisted preparation
+## AI assistance
 
-AI assistance was used for code development/debugging, language editing/translation, and checking mathematical exposition and numerical results. The repository-packaging changes concern paths, documentation, verification and distribution; they do not constitute independent certification of the mathematical proofs. Authors remain responsible for the research and the manuscript's full AI disclosure.
+AI tools assisted with code development and debugging, language editing and translation, and checks of mathematical exposition and numerical results. The authors retain responsibility for the work.
 
 中文运行说明见 [README_zh.md](README_zh.md)。

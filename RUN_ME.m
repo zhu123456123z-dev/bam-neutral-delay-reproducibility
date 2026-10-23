@@ -1,5 +1,5 @@
 function RUN_ME
-% Run the packaged MATLAB simulation and export all figures.
+% Compute the numerical example and export the figures.
 packageRoot = fileparts(mfilename('fullpath'));
 originalPath = path;
 originalFigureVisibility = get(groot, 'defaultFigureVisible');

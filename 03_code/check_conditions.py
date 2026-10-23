@@ -1,4 +1,4 @@
-"""Independent algebraic check of all numerical sufficient inequalities."""
+"""Matrix criteria and decay estimates for the numerical example."""
 from pathlib import Path
 import json
 import numpy as np

@@ -38,8 +38,8 @@ plot([1 1],[1 2],'ko','MarkerFaceColor','k');text(1.1,.65,'case 1');text(1.1,2,'
 xlim([0 5]);ylim([0 12]);xlabel('\xi');ylabel('\eta');grid on;box on;
 legend([h1 h2 h3],{'Separated spectral boundary','Merged spectral boundary','Unweighted row boundary'},'Location','northeast');
 finish(fig,out,'fig4_regions');
-% New figure: E_D(t) = max_j |z_j'(t) - z_ref,j'(t)|.
-% Older result files still produce figures 1--4; rerun run_bam for figure 5.
+% Derivative error: E_D(t) = max_j |z_j'(t) - z_ref,j'(t)|.
+% Skip this plot if the input data contain only state trajectories.
 if isfield(data,'derivative_errors')
  derivative_errors=data.derivative_errors;
  nh=size(derivative_errors,1);dc=lines(nh);

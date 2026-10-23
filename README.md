@@ -92,4 +92,3 @@ Cite the repository URL and the commit used. A reuse license has not yet been as
 
 AI tools assisted with code development and debugging, language editing and translation, and checks of mathematical exposition and numerical results. The authors retain responsibility for the work.
 
-中文运行说明见 [README_zh.md](README_zh.md)。
